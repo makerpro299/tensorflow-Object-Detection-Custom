@@ -41,7 +41,7 @@ while (True):
 
     # loop throughout the detections and place a box around it
     for score, (ymin, xmin, ymax, xmax), label in zip(pred_scores, pred_boxes, pred_labels):
-        if score < 0.9:
+        if score < 0.5:
             continue
 
         score_txt = f'{100 * round(score, 0)}'
