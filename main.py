@@ -38,8 +38,8 @@ while (True):
     pred_labels = [labels[i] for i in pred_labels]
     pred_boxes = boxes.numpy()[0].astype('int')
     pred_scores = scores.numpy()[0]
+    # loop throughout the faces detected and place a box around it
 
-    # loop throughout the detections and place a box around it
     for score, (ymin, xmin, ymax, xmax), label in zip(pred_scores, pred_boxes, pred_labels):
         if score < 0.5:
             continue
@@ -73,8 +73,9 @@ while (True):
             {
                 print("LKW vorraus! Auf Tote Winkel achten!")
             }
+
     # Display the resulting frame
-    cv2.imshow('black and white', img_boxes)
+    cv2.imshow('Result', img_boxes)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
